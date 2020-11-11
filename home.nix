@@ -7,9 +7,38 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    htop neofetch zip unzip wget gnupg gradle adoptopenjdk-bin gcc gnumake roboto source-code-pro jetbrains-mono
-    unstable.idea.clion unstable.idea.idea-ultimate
-    unstable.discord-canary steam
+    # Overview
+    htop 
+    neofetch 
+    zip 
+    unzip 
+    wget 
+    feh 
+    gnupg 
+
+    # Tools
+    i3lock-fancy
+    light
+    shutter
+
+    # Java dev
+    gradle 
+    adoptopenjdk-bin
+    unstable.idea.idea-ultimate
+
+    # C dev
+    gcc 
+    gnumake 
+    unstable.idea.clion
+
+    # Fonts
+    roboto 
+    source-code-pro 
+    jetbrains-mono
+    
+    # Fun
+    unstable.discord 
+    steam
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -19,6 +48,9 @@ in
   programs = {
     home-manager.enable = true;
     neovim.enable = true;
+
+    alacritty = import ./alacritty.nix { inherit pkgs; };    
+
     git = {
       enable = true;
       userName = "Valentin Chassignol";
@@ -27,6 +59,7 @@ in
   };
   
   services = {
+    polybar = import ./polybar.nix { inherit pkgs; };
     gpg-agent = {
       enable = true;
 
@@ -34,6 +67,8 @@ in
       pinentryFlavor = "curses";
     };
   };
+
+  xsession.windowManager.i3 = import ./i3.nix {inherit pkgs lib; };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
