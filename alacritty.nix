@@ -18,7 +18,7 @@
     };
 
     font = {
-      normal.family = "Meslo LG S for Powerline";
+      normal.family = "Consolas";
       size = 10.0;
     };
 

@@ -26,7 +26,7 @@ in
 #        ${pkgs.findutils}/bin/xargs -P1 -I{} ${pkgs.bash}/bin/bash -c "MONITOR={} polybar -q -r main"
 #    '';
 
-    script = "polybar bottom &";
+    script = "PATH=$PATH:${pkgs.i3}/bin polybar bottom &";
   
     config = {
       "global/wm" = {
