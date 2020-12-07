@@ -22,7 +22,7 @@
       size = 10.0;
     };
 
-    background_opacity = 0.65;
+    cursor.style = "Beam";
 
     shell = {
       program = "${pkgs.fish}/bin/fish";
@@ -39,24 +39,24 @@
         cursor = "0xFF261E";
       };
       normal = {
-        black   = "0x0D0D0D";
-        red     = "0xFF301B";
-        green   = "0xA0E521";
-        yellow  = "0xFFC620";
-        blue    = "0x1BA6FA";
-        magenta = "0x8763B8";
-        cyan    = "0x21DEEF";
-        white   = "0xEBEBEB";
+        black   = "0x0c0c0c";
+        red     = "0xc50f1f";
+        green   = "0x13a10e";
+        yellow  = "0xc19c00";
+        blue    = "0x0037da";
+        magenta = "0x881798";
+        cyan    = "0x9e96dd";
+        white   = "0xcccccc";
       };
       bright = {
-        black   = "0x6D7070";
-        red     = "0xFF4352";
-        green   = "0xB8E466";
-        yellow  = "0xFFD750";
-        blue    = "0x1BA6FA";
-        magenta = "0xA578EA";
-        cyan    = "0x73FBF1";
-        white   = "0xFEFEF8";
+        black   = "0x767676";
+        red     = "0xe74856";
+        green   = "0x16c60c";
+        yellow  = "0xf9f1a5";
+        blue    = "0x3b78ff";
+        magenta = "0xb4009e";
+        cyan    = "0x61d6d6";
+        white   = "0xf2f2f2";
       };
     };
   };
