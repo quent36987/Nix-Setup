@@ -19,17 +19,15 @@ in
     # Tools
     i3lock-fancy
     light
-    shutter
+    pavucontrol
 
-    # Java dev
-    gradle 
+    # Dev tools
+    any-nix-shell
     adoptopenjdk-bin
-    unstable.idea.idea-ultimate
-
-    # C dev
     gcc 
     gnumake 
-    unstable.idea.clion
+    unstable.jetbrains.clion
+    unstable.jetbrains.idea-ultimate
 
     # Fonts
     roboto 
@@ -37,8 +35,8 @@ in
     jetbrains-mono
     
     # Fun
-    unstable.discord 
-    steam
+    unstable.discord
+    spotify
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
