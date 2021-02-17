@@ -14,30 +14,38 @@ in
     unzip 
     wget 
     feh 
+    pywal
     gnupg 
 
     # Tools
     i3lock-fancy
-    light
     pavucontrol
+    arandr
+    hibernate
 
     # Dev tools
     any-nix-shell
     adoptopenjdk-bin
-    gcc 
-    gnumake 
-    unstable.jetbrains.clion
-    unstable.jetbrains.idea-ultimate
+    gitAndTools.gitflow
+    jetbrains.idea-ultimate
+    maven
 
     # Fonts
     roboto 
     source-code-pro 
     jetbrains-mono
-    
+    font-awesome
+    unicode-emoji
+    unifont
+    ubuntu_font_family
+    (nerdfonts.override { fonts = [ "FiraCode" "Iosevka" ]; })
+
     # Fun
     unstable.discord
     spotify
+    brave
   ];
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "vinetos";
@@ -45,7 +53,7 @@ in
 
   programs = {
     home-manager.enable = true;
-    neovim.enable = true;
+    neovim = import ./nvim.nix { inherit pkgs; };
 
     alacritty = import ./alacritty.nix { inherit pkgs; };    
 
@@ -55,6 +63,8 @@ in
       userEmail = "Vinetosdev"+"@"+"gmail"+"."+"com";
     };
   };
+
+  fonts.fontconfig.enable = true;
   
   services = {
     polybar = import ./polybar.nix { inherit pkgs; };
