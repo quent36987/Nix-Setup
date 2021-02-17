@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
-# @author Seth Traman
-# Modified by Vinetos
+# @author Vinetos
 
 let
   background = "#000";
@@ -20,13 +19,7 @@ in
       alsaSupport = true;
     };
     
-#    script = ''
-#      ${pkgs.xorg.xrandr}/bin/xrandr --listactivemonitors | \
-#        ${pkgs.gnugrep}/bin/grep -oP '(HDMI\-\d+|eDP\-\d+)' | \
-#        ${pkgs.findutils}/bin/xargs -P1 -I{} ${pkgs.bash}/bin/bash -c "MONITOR={} polybar -q -r main"
-#    '';
-
-    script = "PATH=$PATH:${pkgs.i3}/bin polybar bottom &";
+    script = "PATH=$PATH:${pkgs.i3}/bin polybar top &";
   
     config = {
       "global/wm" = {
@@ -34,8 +27,7 @@ in
         margin-top = 0;
       };
 
-      "bar/bottom" = {
-        bottom = true;
+      "bar/top" = {
         width = "100%";
         height = 36;
         radius = 0;
@@ -48,7 +40,7 @@ in
         line-color = "#f00";
 
         border-size = 0;
-        border-color = "#00000000";
+        border-color = "#000";
 
         padding-left = 0;
         padding-right = 4;
@@ -56,11 +48,14 @@ in
         module-margin-left = 3;
         module-margin-right = 3;
 
-        font-0 = "Ubuntu Nerd Font:style=Regular:size=10:antialias=true;1";
+        font-0 = "Iosevkka Term:size=10;2";
+	font-1 = "Font Awesome 5 Free:pixelsize=10;1";
+	font-2 = "Font Awesome 5 Free Solid:pixelsize=10;1";
+	font-3 = "Font Awesome 5 Brands:pixelsize=10;1";
 
         modules-left = "i3 xwindow";
         modules-center = "date";
-        modules-right = "xkeyboard pulseaudio network memory cpu temperature battery powermenu";
+        modules-right = "network memory cpu battery powermenu";
 
         tray-position = "right";
         tray-padding = 2;
@@ -70,52 +65,34 @@ in
         type = "internal/xwindow";
         label = "%title:0:64:...%";
       };
-
-      "module/xkeyboard" = {
-        type = "internal/xkeyboard";
-        blacklist-0 = "num lock";
-
-        format-prefix = "";
-        format-prefix-foreground = foreground-alt;
-        format-prefix-underline = primary;
-
-        label-layout = "";
-        label-layout-underline = primary;
-
-        label-indicator-padding = 2;
-        label-indicator-margin = 1;
-        label-indicator-foreground = foreground;
-        label-indicator-background = primary;
-        label-indicator-underline = primary;
-      };
       
       "module/i3" = {
-	      type = "internal/i3";
-	      format = "<label-state> <label-mode>";
-	      index-sort = true;
-	      wrapping-scroll = true;
-	      strip-wsnumbers = true;
+	type = "internal/i3";
+	format = "<label-state> <label-mode>";
+        index-sort = true;
+        wrapping-scroll = true;
+        strip-wsnumbers = true;
 	
-	      label-mode = "%mode%";
-	      label-mode-padding = 4;
-	      label-mode-foreground = foreground;
-	      label-mode-background = primary;
+        label-mode = "%mode%";
+        label-mode-padding = 4;
+        label-mode-foreground = foreground;
+        label-mode-background = primary;
+
+        label-focused = "%name%";
+        label-focused-background = background-alt;
+        label-focused-underline = primary;
+        label-focused-padding = 4;
 	
-	      label-focused = "%name%";
-	      label-focused-background = background-alt;
-	      label-focused-underline = primary;
-	      label-focused-padding = 4;
-	
-	      label-unfocused = "%name%";
-	      label-unfocused-padding = 4;	
+        label-unfocused = "%name%";
+        label-unfocused-padding = 4;	
       	label-visible = "V %index%";
-	      label-visible-background = "\${self.label-focused-background}";
-	      label-visible-underline = "\${self.label-focused-background}";
-	      label-visible-padding = "\${self.label-focused-padding}";
+        label-visible-background = "\${self.label-focused-background}";
+        label-visible-underline = "\${self.label-focused-background}";
+        label-visible-padding = "\${self.label-focused-padding}";
 	
-      	label-urgent = "";
-	      label-urgent-background = alert;
-	      label-urgent-padding = 4;
+      	label-urgent = "";
+        label-urgent-background = alert;
+        label-urgent-padding = 4;
       };
 
       "module/cpu" = {
@@ -175,28 +152,6 @@ in
         label = "%date% %time%";
       };
 
-      "module/temperature" = {
-        type = "internal/temperature";
-        thermal-zone = 0;
-        warn-temperature = 55;
-
-        format = "<ramp> <label>";
-        format-underline = "#00000000";
-        format-warn = "<ramp> <label-warn>";
-        format-warn-underline = "format-underline";
-
-        label = "%temperature-c%";
-        label-warn = "%temperature-c%";
-        label-warn-foreground = foreground;
-        label-warn-background = alert;
-        label-warn-padding = 2;
-
-        ramp-0 = "";
-        ramp-1 = "";
-        ramp-2 = "";
-        ramp-foreground = foreground-alt;
-      };
-
       "module/powermenu" = {
         type = "custom/menu";
 
@@ -225,31 +180,7 @@ in
         menu-2-1-exec = "menu-open-0";
       };
 
-      "module/pulseaudio" = {
-        type = "internal/pulseaudio";
-
-        format-volume = "<label-volume> <bar-volume>";
-        label-volume = "VOL";
-        label-volume-foreground = foreground;
-
-        format-muted-prefix = " ";
-        format-muted-foreground = foreground-alt;
-        label-muted = "sound muted";
-
-        bar-volume-width = 16;
-        bar-volume-foreground-0 = "#55aa55";
-        bar-volume-foreground-1 = "#55aa55";
-        bar-volume-foreground-2 = "#55aa55";
-        bar-volume-foreground-3 = "#55aa55";
-        bar-volume-foreground-4 = "#55aa55";
-        bar-volume-foreground-5 = "#f5a70a";
-        bar-volume-foreground-6 = "#ff5555";
-        bar-volume-gradient = true;
-        bar-volume-indicator = "|";
-        bar-volume-fill = "–";
-        bar-volume-empty = "–";
-      };
-
+      
       "module/battery" = {
         type = "internal/battery";
 
@@ -285,15 +216,6 @@ in
         animation-charging-4 = "";
         # Framerate in milliseconds
         animation-charging-framerate = 750;
-
-        # Only applies if <animation-discharging> is used
-        animation-discharging-0 = "";
-        animation-discharging-1 = "";
-        animation-discharging-2 = "";
-        animation-discharging-3 = "";
-        animation-discharging-4 = "";
-        # Framerate in milliseconds
-        animation-discharging-framerate = 500;
       };
     
       "settings" = {
