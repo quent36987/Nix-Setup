@@ -82,6 +82,11 @@ in
         always = true;
         notification = false;
       }
+
+      {
+        command = "systemctl --user restart polybar";
+        always = true;
+      }
     ];
 
   };
