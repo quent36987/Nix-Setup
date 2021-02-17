@@ -21,7 +21,8 @@
     };
 
     font = {
-      normal.family = "Consolas";
+      normal.family = "Fira Code";
+      normal.style = "Regular";
       size = 10.0;
     };
 

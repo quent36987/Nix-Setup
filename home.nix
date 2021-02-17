@@ -35,10 +35,8 @@ in
     source-code-pro 
     jetbrains-mono
     font-awesome
-    unicode-emoji
-    unifont
-    ubuntu_font_family
-    (nerdfonts.override { fonts = [ "FiraCode" "Iosevka" ]; })
+    fira-code
+    fira-code-symbols
 
     # Fun
     unstable.discord
