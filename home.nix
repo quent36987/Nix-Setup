@@ -8,32 +8,21 @@ in
 
   home.packages = with pkgs; [
     # Overview
-    htop 
-    neofetch 
-    zip 
-    unzip 
-    wget 
-    feh 
-    pywal
-    gnupg 
+    htop
+    neofetch
+    feh
+    gnupg
 
-    # Tools
+     # Tools
     i3lock-fancy
     pavucontrol
     arandr
-    hibernate
 
     # Dev tools
     any-nix-shell
-    adoptopenjdk-bin
     gitAndTools.gitflow
-    jetbrains.idea-ultimate
-    maven
 
     # Fonts
-    roboto 
-    source-code-pro 
-    jetbrains-mono
     font-awesome
     fira-code
     fira-code-symbols
