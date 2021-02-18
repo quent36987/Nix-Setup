@@ -59,6 +59,8 @@
     vim-devicons
     nerdtree
     fzf-vim
-    auto-pairs
+    coc-nvim
+    coc-pairs
+    coc-yaml
   ];
 }
