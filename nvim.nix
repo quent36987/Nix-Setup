@@ -4,20 +4,61 @@
   enable = true;
   vimAlias = true;
 
-  extraConfig = ''
-    set expandtab
-    set tabstop=4
-    set shiftwidth=4
-    set nu
+  extraConfig = ''    
+
+    """"""""""""""""""""""""""""""""""""""
+    " => Settings
+    """""""""""""""""""""""""""""""""""""""
+    set clipboard=unnamedplus
+    set number
+    set encoding=UTF-8
     set autoindent
     set smartindent
+    set nocompatible
+    
+    """"""""""""""""""""""""""""""""""""""
+    " => File explorer   
+    """""""""""""""""""""""""""""""""""""""
+    :nnoremap <C-e> :NERDTree<CR>
+    :nnoremap <C-p> :FZF<CR>
 
-    set nocompatible   
+    """""""""""""""""""""""""""""""""""""""
+    " => Theme
+    """""""""""""""""""""""""""""""""""""""
     syntax on
-    ;
+    set t_Co=256
+    "colorscheme sonokai
+
+    """""""""""""""""""""""""""""""""""""""
+    " => Statusbar
+    """""""""""""""""""""""""""""""""""""""
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
+    
+    """""""""""""""""""""""""""""""""""""""
+    " => Code sytling
+    """""""""""""""""""""""""""""""""""""""
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+
+    """""""""""""""""""""""""""""""""""""""
+    " => Keymaps
+    """""""""""""""""""""""""""""""""""""""
+
+    " reload vim.rc
+    nnoremap <Leader>vr :source $MYVIMRC<CR>	" reload
   '';
 
   plugins = with pkgs.vimPlugins; [ 
     vim-polyglot
+    vim-airline
+    vim-airline-themes
+    lightline-vim
+    vim-devicons
+    nerdtree
+    fzf-vim
+    auto-pairs
   ];
 }
