@@ -49,9 +49,9 @@ in
         module-margin-right = 3;
 
         font-0 = "Iosevkka Term:size=10;2";
-	font-1 = "Font Awesome 5 Free:pixelsize=10;1";
-	font-2 = "Font Awesome 5 Free Solid:pixelsize=10;1";
-	font-3 = "Font Awesome 5 Brands:pixelsize=10;1";
+        font-1 = "Font Awesome 5 Free:pixelsize=10;1";
+        font-2 = "Font Awesome 5 Free Solid:pixelsize=10;1";
+        font-3 = "Font Awesome 5 Brands:pixelsize=10;1";
 
         modules-left = "i3 xwindow";
         modules-center = "date";
@@ -67,8 +67,8 @@ in
       };
       
       "module/i3" = {
-	type = "internal/i3";
-	format = "<label-state> <label-mode>";
+        type = "internal/i3";
+        format = "<label-state> <label-mode>";
         index-sort = true;
         wrapping-scroll = true;
         strip-wsnumbers = true;

@@ -21,6 +21,7 @@ in
     # Dev tools
     any-nix-shell
     gitAndTools.gitflow
+    nodejs
 
     # Fonts
     font-awesome
