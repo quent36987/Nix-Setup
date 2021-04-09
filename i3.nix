@@ -64,7 +64,7 @@ in
       "${modifier}+x" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy -p -t \"System Locked Down\"";
       
       # Screenshot
-      "Print" = "exec ${pkgs.shutter}/bin/shutter -s";
+      "Print" = "exec ${pkgs.shutter}/bin/shutter -s -e";
       
       # Brightness
       "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 5";

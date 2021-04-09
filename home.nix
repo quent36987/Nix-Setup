@@ -2,6 +2,10 @@
 
 let
   unstable = import <nixos-unstable> { config.allowUnfree = true; };
+  feather-icons = builtins.fetchurl { 
+    url = "https://github.com/adi1090x/polybar-themes/blob/46154c5283861a6f0a440363d82c4febead3c818/fonts/panels/icomoon_feather.ttf?raw=true";
+    sha256 = "d74dc222a0ee04ebd2a169fed8eb437692a98833c06534f5450400fd024a9bbb";
+  };
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -12,16 +16,31 @@ in
     neofetch
     feh
     gnupg
+    netcat
 
      # Tools
     i3lock-fancy
     pavucontrol
     arandr
+    gnome3.networkmanagerapplet
 
     # Dev tools
     any-nix-shell
     gitAndTools.gitflow
     nodejs
+    maven
+    jdk11
+    jetbrains.idea-ultimate
+    vscode-with-extensions
+    curl
+    p7zip
+
+    # 4 school
+    jetbrains.clion
+    gnumake
+    cmake
+    gcc
+    gdb
 
     # Fonts
     font-awesome
@@ -29,7 +48,7 @@ in
     fira-code-symbols
 
     # Fun
-    unstable.discord
+    #unstable.discord
     spotify
     brave
   ];
