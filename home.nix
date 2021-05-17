@@ -10,6 +10,10 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
+  imports = [
+    ./battery.nix
+  ];
+
   home.packages = with pkgs; [
     # Overview
     htop
@@ -17,26 +21,29 @@ in
     feh
     gnupg
     netcat
+    #gnome3.thunar
 
      # Tools
     i3lock-fancy
     pavucontrol
     arandr
     gnome3.networkmanagerapplet
+    libnotify
 
     # Dev tools
     any-nix-shell
     gitAndTools.gitflow
+    git-lfs
     nodejs
     maven
     jdk11
     jetbrains.idea-ultimate
-    vscode-with-extensions
     curl
     p7zip
 
     # 4 school
     jetbrains.clion
+    jetbrains.webstorm
     gnumake
     cmake
     gcc
@@ -48,7 +55,7 @@ in
     fira-code-symbols
 
     # Fun
-    #unstable.discord
+    unstable.discord
     spotify
     brave
   ];
