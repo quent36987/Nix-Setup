@@ -12,6 +12,7 @@ in
 
   imports = [
     ./battery.nix
+    ./discord.nix
   ];
 
   home.packages = with pkgs; [
@@ -37,13 +38,13 @@ in
     nodejs
     maven
     jdk11
-    jetbrains.idea-ultimate
+    #jetbrains.idea-ultimate
     curl
     p7zip
 
     # 4 school
-    jetbrains.clion
-    jetbrains.webstorm
+    #jetbrains.clion
+    #jetbrains.webstorm
     gnumake
     cmake
     gcc
@@ -55,9 +56,8 @@ in
     fira-code-symbols
 
     # Fun
-    unstable.discord
     spotify
-    brave
+    discord
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -100,5 +100,5 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "20.09";
+  home.stateVersion = "21.05";
 }
