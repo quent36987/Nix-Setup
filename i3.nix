@@ -87,6 +87,11 @@ in
         command = "systemctl --user restart polybar";
         always = true;
       }
+
+      {
+        command = "${pkgs.i3-gaps}/bin/i3-msg workspace ${ws1}";
+        always = true;
+      }
     ];
 
   };
