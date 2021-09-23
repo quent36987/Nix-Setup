@@ -10,6 +10,12 @@ let
   primary = "#5c72f4";
   secondary = "#6ef9f9";
   alert = "#751715";
+
+  # Config HERE
+  network_interface = "wlo1";
+  # Find theses names with $ls -1 /sys/class/power_supply/
+  battery_name = "BAT1";
+  battery_adapter = "ADP1";
 in
   {
     enable = true;
@@ -55,7 +61,7 @@ in
 
         modules-left = "i3 xwindow";
         modules-center = "date";
-        modules-right = "network memory cpu battery powermenu";
+        modules-right = "xkeyboard network memory cpu battery powermenu";
 
         tray-position = "right";
         tray-padding = 2;
@@ -113,9 +119,14 @@ in
         label = "%percentage_used%%";
       };
 
+      "module/xkeyboard" = {
+        type = "internal/xkeyboard";
+        label-layout = "%layout%";
+      };
+
       "module/network" = {
         type = "internal/network";
-        interface = "wlo1";
+        interface = network_interface;
         interval = 3;
 
         format-connected = "<ramp-signal> <label-connected>";
@@ -186,9 +197,8 @@ in
 
         full-at = 100;
 
-        # $ ls -1 /sys/class/power_supply/
-        battery = "BAT1";
-        adapter = "ADP1";
+        battery = battery_name;
+        adapter = battery_adapter;
         poll-interval = 5;
 
         format-charging = "<animation-charging> <label-charging>";
