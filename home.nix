@@ -22,6 +22,7 @@ in
     feh
     gnupg
     netcat
+    chromium
     #gnome3.thunar
 
      # Tools
@@ -30,25 +31,26 @@ in
     arandr
     gnome3.networkmanagerapplet
     libnotify
+    emacs
+    vlc
+    teams
+    thunderbird
 
     # Dev tools
     any-nix-shell
     gitAndTools.gitflow
     git-lfs
     nodejs
-    maven
-    jdk11
-    #jetbrains.idea-ultimate
     curl
     p7zip
+    vscodium
 
     # 4 school
-    #jetbrains.clion
-    #jetbrains.webstorm
     gnumake
     cmake
     gcc
     gdb
+    jetbrains.clion
 
     # Fonts
     font-awesome
@@ -61,20 +63,31 @@ in
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "vinetos";
-  home.homeDirectory = "/home/vinetos";
+  home.username = "quentin";
+  home.homeDirectory = "/home/quentin";
 
   programs = {
     home-manager.enable = true;
+   # vscode.enable = true;
+   # vscode.package = pkgs.vscode-fhs;
     neovim = import ./nvim.nix { inherit pkgs; };
 
     alacritty = import ./alacritty.nix { inherit pkgs; };    
 
     git = {
       enable = true;
-      userName = "Valentin Chassignol";
-      userEmail = "Vinetosdev"+"@"+"gmail"+"."+"com";
+      userName = "quentin";
+      userEmail = "quent36987"+"@"+"gmail"+"."+"com";
     };
+    bash = {
+        enable = true;
+        shellAliases = {
+          lll = "echo youou";
+          la = "ls -a";
+        };
+      };
+  
+
   };
 
   fonts.fontconfig.enable = true;

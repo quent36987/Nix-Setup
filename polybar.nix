@@ -12,10 +12,10 @@ let
   alert = "#751715";
 
   # Config HERE
-  network_interface = "wlo1";
+  network_interface = "wlan1";
   # Find theses names with $ls -1 /sys/class/power_supply/
-  battery_name = "BAT1";
-  battery_adapter = "ADP1";
+  battery_name = "BAT0";
+  battery_adapter = "AC";
 in
   {
     enable = true;

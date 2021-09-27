@@ -3,7 +3,7 @@
 let
     wallpaper = builtins.fetchurl {
       url = "https://wallpaperaccess.com/full/569813.png";
-      sha256 = "206cce815ed45a9b4176141fa500cc81165b16b195b13c10095844f5c9570a29";
+      sha256 = "1hl17xd2507dyylckzdbfzivaz8mfs2yr8c1bs11pda23wh6n327";
     };
 
    ws1 = "";
@@ -29,7 +29,7 @@ in
     window.border = 0;
 		
     gaps = {
-      inner = 12;
+      inner = 1;
       outer = 0;
     };
     
@@ -60,12 +60,16 @@ in
       "${modifier}+0" = "workspace ${ws0}";
       "${modifier}+Shift+0" = "move container to workspace ${ws0}";
 
-      # Lock
-      "${modifier}+x" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy -p -t \"System Locked Down\"";
-      
+      # LockX
+      #AVANT"${modifier}+x" = "exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy -p -t -i $HOME/img.png \"System Locked Down\"";
+      "${modifier}+x" = "exec i3lock -i $HOME/img.png ";
+
+
       # Screenshot
-      "Print" = "exec ${pkgs.shutter}/bin/shutter -s -e";
-      
+      #AVANT : "Print" = "exec ${pkgs.shutter}/bin/shutter -s -e";
+      "Print" = "exec flameshot gui";
+
+
       # Brightness
       "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 5";
       "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 5";
